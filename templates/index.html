@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Garage Door Opener</title>
+    <style>
+      button {
+        display: block;
+        margin: 0 auto;
+        font-size: 24px;
+        padding: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.5s ease-in-out;
+      }
+      button.pressed {
+        background-color: #F44336;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="garage-door-form" method="post" action="/garage">
+      <input type="hidden" name="garage-door" value="open">
+      <button id="garage-door-button">3 Lacewing Garage Door</button>
+    </form>
+    <script>
+      var garageDoorButton = document.getElementById('garage-door-button');
+      var garageDoorForm = document.getElementById('garage-door-form');
+      garageDoorButton.addEventListener('click', function() {
+        garageDoorButton.classList.add('pressed');
+        garageDoorForm.submit();
+        setTimeout(function() {
+          garageDoorButton.classList.remove('pressed');
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

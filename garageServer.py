@@ -1,17 +1,15 @@
 import logging
 import garage
 import atexit
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, render_template, redirect
+
 
 app = Flask(__name__)
 
-
-@app.route('/garage')
-def garage():
+@app.route('/garage', methods=["POST"])
+def toggleGarage():
     garage.triggerGarage()
-    response = make_response('OK')
-    response.status_code = 200
-    return response
+    return redirect(request.referrer)
 
 
 def cleanup():
@@ -21,6 +19,9 @@ def cleanup():
     if func is not None:
         func()
 
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
