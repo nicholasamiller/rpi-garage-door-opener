@@ -6,7 +6,7 @@
       button {
         display: block;
         margin: 0 auto;
-        font-size: 24px;
+        font-size: 5rem;
         padding: 16px;
         background-color: #4CAF50;
         color: white;
@@ -14,6 +14,9 @@
         border-radius: 10px;
         cursor: pointer;
         transition: background-color 0.5s ease-in-out;
+	width: 100%;
+	height: 40rem;
+
       }
       button.pressed {
         background-color: #F44336;
@@ -23,8 +26,10 @@
   <body>
     <form id="garage-door-form" method="post" action="/garage">
       <input type="hidden" name="garage-door" value="open">
-      <button id="garage-door-button">3 Lacewing Garage Door</button>
+      <button id="garage-door-button">Garage Door</button>
     </form>
+    <img src="/snapshot">
+
     <script>
       var garageDoorButton = document.getElementById('garage-door-button');
       var garageDoorForm = document.getElementById('garage-door-form');
